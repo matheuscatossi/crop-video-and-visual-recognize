@@ -18,8 +18,13 @@ export class ProcessComponent implements OnInit {
     ) {
 
     }
-    public ngOnInit() {
+
+    public home() {
         this.src_img = "./../../assets/autenticar.gif";
+    }
+
+    public ngOnInit() {
+        this.home();
 
         let self = this;
         document.getElementById('inputGroupFile01').onchange = function() {
