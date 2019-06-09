@@ -137,6 +137,7 @@ function requestVisual(index) {
     });
 }
 
+app.use(express.static(__dirname + '/front/nevermaybe/dist/nevermaybe/'));
 
 
 var port = process.env.PORT || 3001

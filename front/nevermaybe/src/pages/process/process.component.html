@@ -1,7 +1,8 @@
-<input (change)="fileChange($event)" type="file" class="custom-file-input" id="inputGroupFile01"
-    aria-describedby="inputGroupFileAddon01" multiple>
-<span class="uk-link">selecting one</span>
+<section>
+    <div>
+        <img [src]="src_img" class="img_home" id="img_home"/>
 
-<input type="button" value="UPLOAD" (click)="upload()"/>
-
-<input type="button" value="VERIFY" (click)="verify()"/>
+    </div>
+    <div class="file_wrap"><input (click)="addImageBreak()" (change)="fileChange($event)" type="file" class="button_upload" id="inputGroupFile01"
+            aria-describedby="inputGroupFileAddon01" multiple></div>
+</section>

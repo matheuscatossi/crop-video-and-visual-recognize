@@ -1,0 +1,30 @@
+.img_home {
+    width: 100%;
+}
+
+section div:first-child {
+    width: 100%;
+    position: relative;
+}
+
+section div:last-child {
+    width: 120px;
+    height: 50px;
+    position: relative;
+    margin-top:  -140px;
+    margin-left: 250px;
+}
+
+.button_upload {
+    background-color: Transparent;
+    width: 100px;
+    height: 150px;
+    position: relative;
+    margin-top:  -180px;
+}
+
+
+.file_wrap input{
+    opacity:0;
+    cursor:pointer;
+}

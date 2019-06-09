@@ -3,7 +3,8 @@
     "main": "dist/bundle.js",
     "scripts": {
         "build": "webpack --config webpack.config.js",
-        "deploy": "ibmcloud fn action update extractSnapshotFromVideo dist/bundle.js --kind nodejs:8"
+        "deploy": "ibmcloud fn action update main dist/bundle.js --kind nodejs:6",
+        "start": "node index.js"
     },
     "dependencies": {
         "@cloudant/cloudant": "^4.1.0",
@@ -15,7 +16,6 @@
         "ffmpeg": "0.0.4",
         "fluent-ffmpeg": "^2.1.2",
         "fs": "0.0.1-security",
-        "ibm_db": "^2.5.2",
         "json2xls": "^0.1.2",
         "watson-developer-cloud": "^4.0.1"
     },
