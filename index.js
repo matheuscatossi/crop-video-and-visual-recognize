@@ -31,9 +31,6 @@ app.post('/api/upload', multipartMiddleware, (req, res) => {
     });
 });
 
-
-
-
 app.get('/api/verify', multipartMiddleware, (req, res) => {
     console.log("GET /api/verify");
 
@@ -51,19 +48,25 @@ app.get('/api/verify', multipartMiddleware, (req, res) => {
         })))).then(results => {
             let countScore = 0;
             for (let result of results) {
-                if (result.request.images[0]) {
-                    if (result.request.images[0].classifiers[0]) {
-                        if (result.request.images[0].classifiers[0].classes[0]) {
-                            if (result.request.images[0].classifiers[0].classes[0].score != undefined) {
-                                let score = result.request.images[0].classifiers[0].classes[0].score;
-                                if (score > 0.75 && score <= 0.85) {
-                                    countScore += 1;
-                                } else if (score > 0.85 && score <= 0.90) {
-                                    countScore += 2;
-                                } else if (score > 0.90) {
-                                    countScore += 3;
+                if (result != undefined) {
+                    if (result.request != undefined) {
+                        if (result.request.images != undefined) {
+                            if (result.request.images[0] != undefined) {
+                                if (result.request.images[0].classifiers[0] != undefined) {
+                                    if (result.request.images[0].classifiers[0].classes[0] != undefined) {
+                                        if (result.request.images[0].classifiers[0].classes[0].score != undefined) {
+                                            let score = result.request.images[0].classifiers[0].classes[0].score;
+                                            if (score > 0.75 && score <= 0.85) {
+                                                countScore += 1;
+                                            } else if (score > 0.85 && score <= 0.90) {
+                                                countScore += 2;
+                                            } else if (score > 0.90) {
+                                                countScore += 3;
+                                            }
+                                            console.log(score);
+                                        }
+                                    }
                                 }
-                                console.log(score);
                             }
                         }
                     }
@@ -89,7 +92,7 @@ app.get('/api/verify', multipartMiddleware, (req, res) => {
 
 function cropVideo() {
     return new Promise(function (resolve, reject) {
-        ffmpeg('./assets/video_example_6.mp4')
+        ffmpeg('./assets/video.mp4')
             .on('end', function () {
                 console.log('Screenshots taken');
                 resolve(true);
